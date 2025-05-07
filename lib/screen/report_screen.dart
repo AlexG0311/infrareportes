@@ -17,7 +17,7 @@ class _ReportScreenState extends State<ReportScreen> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
   final TextEditingController _locationController = TextEditingController();
-  List<File> _images = [];
+  final List<File> _images = [];
   bool _isLoading = false;
   bool _isLocationLoading = false;
 
