@@ -1,0 +1,2 @@
+C:/Users/Juan Arrieta/Downloads/infrareportes/android/app/.cxx/Debug/137067kt/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/Juan Arrieta/Downloads/infrareportes/android/app/.cxx/Debug/137067kt/armeabi-v7a/CMakeFiles/rebuild_cache.dir
