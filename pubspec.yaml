@@ -1,14 +1,12 @@
 name: infrareportes
 description: "A new Flutter project."
 
-publish_to: 'none' 
-
+publish_to: "none"
 
 version: 1.0.0+1
 
 environment:
   sdk: ^3.6.2
-
 
 dependencies:
   flutter:
@@ -22,7 +20,6 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^5.0.0
   flutter_launcher_icons: ^0.14.2 # Paquete para generar íconos de la app
-
 
 flutter:
   generate: true
