@@ -1,42 +1,60 @@
 plugins {
     id "com.android.application"
     id "kotlin-android"
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+ 
     id "dev.flutter.flutter-gradle-plugin"
 }
 
 android {
     namespace = "com.example.infrareportes"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    compileSdk = 35
+    ndkVersion "27.2.12479018"
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+       sourceCompatibility = JavaVersion.VERSION_11
+       targetCompatibility = JavaVersion.VERSION_11
+       coreLibraryDesugaringEnabled true
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.example.infrareportes"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+    
+        minSdk 21 // Mayor compatibilidad
+       targetSdk 35
+        versionCode 1 // Incrementar con cada actualización
+        versionName "1.0.0" // EL PRIMERO ES EL MAYOR (NUMERO DE ACTUALIZACIONES IMPORTANTES Y GRANDES) 
+        //EL SEGUNDO ES EL MENOR (NUMERO DE ACTUALIZACIONES MINIMAS) Y EL TERCERO (NUMERO DE
+        // BUGS QUE SE CORRIGIERON).
+        multiDexEnabled true
+        renderscriptTargetApi 21
+        renderscriptSupportModeEnabled true
     }
 
-    buildTypes {
+   buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.debug
+            // Desactivamos la minimización de código
+            minifyEnabled true
+            // Desactivamos la eliminación de recursos no utilizados
+            shrinkResources true
+        }
+        debug {
+            // Desactivamos la minimización y eliminación de recursos en modo debug
+            minifyEnabled false
+            shrinkResources false
+
+            signingConfig signingConfigs.debug
         }
     }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
+    implementation 'com.android.billingclient:billing:7.0.0'
 }
 
 flutter {
